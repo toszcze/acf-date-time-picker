@@ -1,6 +1,6 @@
 <?php
 /**
-Plugin Name: Advanced Custom Fields: Date & Time Picker Field
+Plugin Name: Date & Time Picker for Advanced Custom Fields
 Plugin URI: 
 Description: Date & Time Picker field for Advanced Custom Fields 4 and 5 (Pro)
 Version: 1.0.0
@@ -49,6 +49,7 @@ class acf_plugin_date_time_picker {
 		if(empty($version)) {
 			$version = 4;
 		}
+		include_once('fields/acf-date_time_picker-common.php');
 		include_once('fields/acf-date_time_picker-v'.$version.'.php');
 	}
 	

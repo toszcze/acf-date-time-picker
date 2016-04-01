@@ -6,21 +6,26 @@ if(!class_exists('acf_field_date_time_picker')):
 
 class acf_field_date_time_picker extends acf_field {
 	/**
+	 * Helper object
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var object
+	 */
+	private $dtp;
+	
+	/**
 	* Class constructor
 	*
 	* @since 1.0.0
 	*/
 	public function __construct() {
-		$this->name = 'date_time_picker';
-		$this->label = __('Date & Time Picker', 'acf-date-time-picker');
-		$this->category = 'jQuery';
+		$this->dtp = new acf_field_date_time_picker_common();
+		$this->name = $this->dtp->name;
+		$this->label = $this->dtp->label;
+		$this->category = $this->dtp->category;
 		
-		$this->defaults = array(
-			'field_type' => 'date_time',
-			'date_format' => 'yy-mm-dd',
-			'time_format' => 'HH:mm',
-			'first_day' => 1,
-		);
+		$this->defaults = $this->dtp->defaults;
 		
 		add_action('init', array($this, 'init'));
 		
@@ -33,24 +38,7 @@ class acf_field_date_time_picker extends acf_field {
 	* @since 1.0.0
 	*/
 	public function init() {
-		global $wp_locale;
-		
-		$this->l10n = array(
-			'closeText'         => __('Done', 'acf-date-time-picker'),
-			'currentText'       => __('Now', 'acf-date-time-picker'),
-			'monthNames'        => array_values($wp_locale->month),
-			'monthNamesShort'   => array_values($wp_locale->month_abbrev),
-			'monthStatus'       => __('Show a different month', 'acf-date-time-picker'),
-			'dayNames'          => array_values($wp_locale->weekday),
-			'dayNamesShort'     => array_values($wp_locale->weekday_abbrev),
-			'dayNamesMin'       => array_values($wp_locale->weekday_initial),
-			'isRTL'             => isset($wp_locale->is_rtl) ? $wp_locale->is_rtl : false,
-			'timeOnlyTitle'		=> __('Choose Time', 'acf-date-time-picker'),
-			'timeText'			=> __('Time', 'acf-date-time-picker'),
-			'hourText'			=> __('Hour', 'acf-date-time-picker'),
-			'minuteText'		=> __('Minute', 'acf-date-time-picker'),
-			'secondText'		=> __('Second', 'acf-date-time-picker'),
-		);
+		$this->l10n = $this->dtp->translations();
 	}
 	
 	/**
@@ -102,15 +90,13 @@ class acf_field_date_time_picker extends acf_field {
 	* @param array $field The field being rendered
 	*/
 	public function render_field($field) {
-		$value = $this->format_date_time($field['value'], $field);
-		$value = $field['value'];
 		?>
 		<div class="acf-date_time_picker acf-input-wrap" data-field-type="<?php echo esc_attr($field['field_type']); ?>"
 										  data-date-format="<?php echo esc_attr($field['date_format']); ?>"
 										  data-time-format="<?php echo esc_attr($field['time_format']); ?>"
 										  data-first-day="<?php echo esc_attr($field['first_day']); ?>"
 										  >
-			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($value); ?>" class="input" />
+			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($field['value']); ?>" class="input" />
 		</div>
 		<?php
 	}
@@ -159,104 +145,9 @@ class acf_field_date_time_picker extends acf_field {
 	* @return mixed The formatted date and time
 	*/
 	public function load_value($value, $post_id, $field) {
-		return $this->format_date_time($value, $field);
-		
-	}
-
-	/**
-	* Format date and time after it is loaded from the db and before it is returned to the template
-	*
-	* @since 1.0.0
-	*
-	* @param mixed $value The value found in the database
-	* @param mixed $post_id The post ID from which the value was loaded
-	* @param array $field The field array holding all the field options
-	*
-	* @return mixed The formatted date and time
-	*/
-	public function format_value($value, $post_id, $field) {
-		return $this->format_date_time($value, $field);
-	}
-
-	/**
-	* Format date and time
-	*
-	* @since 1.0.0
-	*
-	* @param mixed $value The value found in the database
-	* @param mixed $format The date and time format
-	*
-	* @return mixed The formatted date and time
-	*/
-	public function format_date_time($value, $field) {
-		if($field['field_type'] == 'time') {
-			$format = $this->time_format_js_to_php($field['time_format']);
-		}
-		else {
-			$format = $this->date_format_js_to_php($field['date_format']).' '.$this->time_format_js_to_php($field['time_format']);
-		}
-		return date_i18n($format, strtotime($value));
-	}
-
-	/**
-	* Convert JS date format string to PHP
-	*
-	* @since 1.0.0
-	*
-	* @param string $format JS date format string
-	* 
-	* @return string PHP date format string
-	*/
-	public function date_format_js_to_php($format) {
-		$t = array(
-			// day
-			'dd' => 'd',
-			'd' => 'j',
-			'DD' => 'l',
-			'D' => 'D',
-			'o' => 'z',
-			// month
-			'mm' => 'm',
-			'm' => 'n',
-			'MM' => 'F',
-			'M' => 'M',
-			// year
-			'yy' => 'Y',
-			'y' => 'y',
-			);
-		return strtr((string)$format, $t);
+		return $this->dtp->format_date_time($value, $field);
 	}
 	
-	/**
-	* Convert JS time format string to PHP
-	*
-	* @since 1.0.0
-	*
-	* @param string $format JS time format string
-	* 
-	* @return string PHP time format string
-	*/
-	public function time_format_js_to_php($format) {
-		$t = array(
-			// hour
-			'HH' => 'H',
-			'H' => 'G',
-			'hh' => 'h',
-			'h' => 'g',
-			// minute
-			'mm' => 'i',
-			'm' => 'i',
-			// second
-			'ss' => 's',
-			's' => 's',
-			// am / pm
-			'tt' => 'a',
-			't' => 'a',
-			'TT' => 'A',
-			'T' => 'A',
-			);
-		return strtr((string)$format, $t);
-	}
 }
 
 // initialize field class

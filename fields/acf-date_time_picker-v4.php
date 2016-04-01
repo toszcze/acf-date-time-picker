@@ -6,6 +6,15 @@ if(!class_exists('acf_field_date_time_picker')):
 
 class acf_field_date_time_picker extends acf_field {
 	/**
+	 * Helper object
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var object
+	 */
+	private $dtp;
+	
+	/**
 	 * Field Options
 	 *
 	 * @since 1.0.0
@@ -29,16 +38,12 @@ class acf_field_date_time_picker extends acf_field {
 	* @since 1.0.0
 	*/
 	public function __construct() {
-		$this->name = 'date_time_picker';
-		$this->label = __('Date & Time Picker', 'acf-date-time-picker');
-		$this->category = __('jQuery', 'acf');
+		$this->dtp = new acf_field_date_time_picker_common();
+		$this->name = $this->dtp->name;
+		$this->label = $this->dtp->label;
+		$this->category = $this->dtp->category;
 		
-		$this->defaults = array(
-			'field_type' => 'date_time',
-			'date_format' => 'yy-mm-dd',
-			'time_format' => 'HH:mm',
-			'first_day' => 1,
-		);
+		$this->defaults = $this->dtp->defaults;
 		
 		add_action('init', array($this, 'init'));
 		
@@ -57,24 +62,7 @@ class acf_field_date_time_picker extends acf_field {
 	* @since 1.0.0
 	*/
 	public function init() {
-		global $wp_locale;
-		
-		$this->l10n = array(
-			'closeText'         => __('Done', 'acf-date-time-picker'),
-			'currentText'       => __('Now', 'acf-date-time-picker'),
-			'monthNames'        => array_values($wp_locale->month),
-			'monthNamesShort'   => array_values($wp_locale->month_abbrev),
-			'monthStatus'       => __('Show a different month', 'acf-date-time-picker'),
-			'dayNames'          => array_values($wp_locale->weekday),
-			'dayNamesShort'     => array_values($wp_locale->weekday_abbrev),
-			'dayNamesMin'       => array_values($wp_locale->weekday_initial),
-			'isRTL'             => isset($wp_locale->is_rtl) ? $wp_locale->is_rtl : false,
-			'timeOnlyTitle'		=> __('Choose Time', 'acf-date-time-picker'),
-			'timeText'			=> __('Time', 'acf-date-time-picker'),
-			'hourText'			=> __('Hour', 'acf-date-time-picker'),
-			'minuteText'		=> __('Minute', 'acf-date-time-picker'),
-			'secondText'		=> __('Second', 'acf-date-time-picker'),
-		);
+		$this->l10n = $this->dtp->translations();
 	}
 	
 	/**
@@ -194,20 +182,39 @@ class acf_field_date_time_picker extends acf_field {
 	}
 	
 	/**
-	* Validate date and time before saving it to database
+	* Convert date and time to the standard format (Y-m-d H:i:s) before saving it to database
 	*
 	* @since 1.0.0
 	*
 	* @param mixed $value The value which will be saved in the database
 	* @param integer $post_id The post ID of which the value will be saved
 	* @param array $field The field array holding all the field options
+	* 
 	* @return mixed The value which will be saved in the database
 	*/
 	public function update_value($value, $post_id, $field) {
-		if(strtotime($value) === -1 || strtotime($value) === false) {
-			return '';
+		$field = array_merge($this->defaults, $field);
+		if(preg_match('/^dd?\//', $field['date_format'])) { // if start with dd/ or d/ (not supported by strtotime())
+			$value = str_replace('/', '-', $value);
 		}
+		$value = date('Y-m-d H:i:s', strtotime($value));
 		return $value;
+	}
+	
+	/**
+	* Format date and time after it is loaded from the db
+	*
+	* @since 1.0.0
+	*
+	* @param mixed $value The value found in the database
+	* @param mixed $post_id The post ID from which the value was loaded
+	* @param array $field The field array holding all the field options
+	* 
+	* @return mixed The formatted date and time
+	*/
+	public function load_value($value, $post_id, $field) {
+		$field = array_merge($this->defaults, $field);
+		return $this->dtp->format_date_time($value, $field);
 	}
 	
 }
