@@ -1,4 +1,4 @@
-# Advanced Custom Fields: Date & Time Picker Field
+# Date & Time Picker for Advanced Custom Fields
 
 Date & Time Picker field for Advanced Custom Fields 4 and 5.
 
