@@ -72,7 +72,7 @@ You can read more about formatting the date [here](http://api.jqueryui.com/datep
 
 **How do I format the date and time to display it on the frontend?**
 
-The plugin saves the date and time in the following format: `YYYY-mm-dd H:i:s` (for example `2016-04-01 16:57:00`). This is the format used by WordPress in `wp_posts` table, so it's easy to use this field for custom meta qiueries. However the Advanced Custom Fields API returns the date and time in the format set in the field settings, so you can just use `the_field()` function.
+The plugin saves the date and time in the following format: `YYYY-MM-DD hh:mm:ss` (for example `2016-04-01 16:57:00`). This is the format used by WordPress in `wp_posts` table, so it's easy to use this field value in custom meta queries. However the Advanced Custom Fields API returns the date and time in the format set in the field settings, so you can just use `the_field()` or `get_field()` function in your theme.
 
 To display the date and time in a different format, you can use [strtotime()](http://php.net/manual/en/function.strtotime.php) and [date()](http://php.net/manual/en/function.date.php) functions, for example:
 `
