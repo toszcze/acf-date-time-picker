@@ -25,6 +25,8 @@ The plugin uses [Timepicker Addon](http://trentrichardson.com/examples/timepicke
 
 This ACF field type is compatible with ACF 5 (Pro) and ACF 4.
 
+Icon made by [SimpleIcon](http://www.flaticon.com/authors/simpleicon) from [Flaticon](http://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).
+
 == Installation ==
 
 1. Copy the `acf-date-time-picker` folder into your `wp-content/plugins` folder
