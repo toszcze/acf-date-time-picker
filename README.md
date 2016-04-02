@@ -8,11 +8,22 @@ Date & Time Picker field for Advanced Custom Fields 4 and 5.
 
 This is an add-on for [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) and [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/), which allows to create a Date and Time Picker field.
 
-The plugin uses [Timepicker Addon](http://trentrichardson.com/examples/timepicker/) for jQuery UI Datepicker by [Trent Richardson](http://trentrichardson.com/examples/timepicker/), licensed under the MIT license.
+### Features
+
+* Create a date and time picker field
+* Create a time picker field (without a date)
+* Two time picker types: slider (looks better) and dropdown list (takes less space)
+* Define date and time format for each field
 
 ### Compatibility
 
 This ACF field type is compatible with ACF 5 (Pro) and ACF 4.
+
+### Credits
+
+The plugin uses [Timepicker Addon](http://trentrichardson.com/examples/timepicker/) for jQuery UI Datepicker by [Trent Richardson](http://trentrichardson.com/examples/timepicker/), licensed under the MIT license.
+
+Icon made by [SimpleIcon](http://www.flaticon.com/authors/simpleicon) from [Flaticon](http://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).
 
 ### Installation
 
