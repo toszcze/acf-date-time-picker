@@ -56,6 +56,7 @@ class acf_field_date_time_picker_common {
 			'date_format' => 'yy-mm-dd',
 			'time_format' => 'HH:mm',
 			'first_day' => 1,
+			'time_selector' => 'slider',
 		);
 	}
 	

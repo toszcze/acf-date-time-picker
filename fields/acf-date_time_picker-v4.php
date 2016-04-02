@@ -127,6 +127,25 @@ class acf_field_date_time_picker extends acf_field {
 			</td>
 		</tr>
 		
+		<tr class="field_option field_option_<?php echo $this->name; ?>">
+			<td class="label">
+				<label><?php _e('Timepicker type', 'acf-date-time-picker'); ?></label>
+			</td>
+			<td>
+				<?php
+				do_action('acf/create_field', array(
+					'type' => 'radio',
+					'layout' => 'horizontal',
+					'name' => 'fields['.$key.'][time_selector]',
+					'value' => $field['time_selector'],
+					'choices' => array('slider' => __('slider', 'acf-date-time-picker'),
+									   'select' => __('dropdown list', 'acf-date-time-picker'),
+									  ),
+				));
+				?>
+			</td>
+		</tr>
+		
 		<?php
 		global $wp_locale;
 		$choices = array_values($wp_locale->weekday);
@@ -163,6 +182,7 @@ class acf_field_date_time_picker extends acf_field {
 										  data-date-format="<?php echo esc_attr($field['date_format']); ?>"
 										  data-time-format="<?php echo esc_attr($field['time_format']); ?>"
 										  data-first-day="<?php echo esc_attr($field['first_day']); ?>"
+										  data-time-selector="<?php echo esc_attr($field['time_selector']); ?>"
 										  >
 			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($field['value']); ?>" class="input" />
 		</div>

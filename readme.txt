@@ -15,6 +15,12 @@ This is an add-on for [Advanced Custom Fields](http://wordpress.org/extend/plugi
 
 The plugin uses [Timepicker Addon](http://trentrichardson.com/examples/timepicker/) for jQuery UI Datepicker by [Trent Richardson](http://trentrichardson.com/examples/timepicker/), licensed under the MIT license.
 
+= Features =
+* Create a date and time picker field
+* Create a time picker field (without a date)
+* Two time picker types: slider (looks better) and dropdown list (takes less space)
+* Define date and time format for each field
+
 = Compatibility =
 
 This ACF field type is compatible with ACF 5 (Pro) and ACF 4.

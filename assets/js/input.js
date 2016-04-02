@@ -6,9 +6,11 @@
 			dateFormat: container.data('date-format'),
 			timeFormat: container.data('time-format'),
 			firstDay: container.data('first-day'),
+			controlType: container.data('time-selector'),
 			changeYear: true,
 			changeMonth: true,
-			showButtonPanel: true
+			showButtonPanel: true,
+			oneLine: true
 		});
 		
 		if(container.data('field-type') == 'date_time') {
