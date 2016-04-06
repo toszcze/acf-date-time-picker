@@ -129,6 +129,25 @@ class acf_field_date_time_picker extends acf_field {
 		
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
+				<label><?php _e('Allow past dates?', 'acf-date-time-picker'); ?></label>
+			</td>
+			<td>
+				<?php
+				do_action('acf/create_field', array(
+					'type' => 'radio',
+					'layout' => 'horizontal',
+					'name' => 'fields['.$key.'][past_dates]',
+					'value' => $field['past_dates'],
+					'choices' => array('yes' => __('yes', 'acf-date-time-picker'),
+									   'no' => __('no', 'acf-date-time-picker'),
+									  ),
+				));
+				?>
+			</td>
+		</tr>
+		
+		<tr class="field_option field_option_<?php echo $this->name; ?>">
+			<td class="label">
 				<label><?php _e('Timepicker type', 'acf-date-time-picker'); ?></label>
 			</td>
 			<td>
@@ -183,6 +202,7 @@ class acf_field_date_time_picker extends acf_field {
 										  data-time-format="<?php echo esc_attr($field['time_format']); ?>"
 										  data-first-day="<?php echo esc_attr($field['first_day']); ?>"
 										  data-time-selector="<?php echo esc_attr($field['time_selector']); ?>"
+										  data-past-dates="<?php echo esc_attr($field['past_dates']); ?>"
 										  >
 			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($field['value']); ?>" class="input" />
 		</div>

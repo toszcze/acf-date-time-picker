@@ -2,6 +2,13 @@
 	function initialize_field($el) {
 		var container = $el.find('div.acf-date_time_picker');
 		
+		if(container.data('past-dates') == 'yes' || container.data('field-type') == 'time') {
+			var min_date = null;
+		}
+		else {
+			var min_date = 0;
+		}
+		
 		var params = $.extend({}, acf.l10n.date_time_picker, {
 			dateFormat: container.data('date-format'),
 			timeFormat: container.data('time-format'),
@@ -10,7 +17,8 @@
 			changeYear: true,
 			changeMonth: true,
 			showButtonPanel: true,
-			oneLine: true
+			oneLine: true,
+			minDate: min_date
 		});
 		
 		if(container.data('field-type') == 'date_time') {

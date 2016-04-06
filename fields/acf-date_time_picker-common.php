@@ -57,6 +57,7 @@ class acf_field_date_time_picker_common {
 			'time_format' => 'HH:mm',
 			'first_day' => 1,
 			'time_selector' => 'slider',
+			'past_dates' => 'yes',
 		);
 	}
 	
@@ -64,6 +65,8 @@ class acf_field_date_time_picker_common {
 	* Initialize translations
 	*
 	* @since 1.0.0
+	*
+	* @return array Translations
 	*/
 	public function translations() {
 		global $wp_locale;
@@ -92,9 +95,9 @@ class acf_field_date_time_picker_common {
 	* @since 1.0.0
 	*
 	* @param mixed $value The value found in the database
-	* @param mixed $format The date and time format
+	* @param string $format The date and time format
 	*
-	* @return mixed The formatted date and time
+	* @return string The formatted date and time
 	*/
 	public function format_date_time($value, $field) {
 		if($field['field_type'] == 'time') {
