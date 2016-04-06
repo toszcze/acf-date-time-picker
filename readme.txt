@@ -92,5 +92,8 @@ echo date('d/m/Y g:i a', strtotime(get_field('date_and_time_field')));
 
 == Changelog ==
 
+= 1.1.0 =
+* Option for disabling past dates in datepicker.
+
 = 1.0.0 =
 * Initial release.
