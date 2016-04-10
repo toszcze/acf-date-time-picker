@@ -2,11 +2,13 @@
 
 Date & Time Picker field for Advanced Custom Fields 4 and 5.
 
+[Download this plugin from WordPress.org](https://wordpress.org/plugins/acf-date-time-picker/)
+
 -----------------------
 
 ### Description
 
-This is an add-on for [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) and [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/), which allows to create a Date and Time Picker field.
+This is an add-on for [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) and [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/), which allows to create a Date and Time Picker field.
 
 ### Features
 
