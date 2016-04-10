@@ -3,7 +3,7 @@ Contributors: toszcze
 Tags: advanced custom fields,acf,custom field,datepicker,timepicker
 Requires at least: 3.5
 Tested up to: 4.5
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,8 +92,12 @@ echo date('d/m/Y g:i a', strtotime(get_field('date_and_time_field')));
 
 == Changelog ==
 
-= 1.1.0 =
+= 1.1.1 (2016-04-10) =
+* Updated .pot file.
+* Polish translation.
+
+= 1.1.0 (2016-04-06) =
 * Option for disabling past dates in datepicker.
 
-= 1.0.0 =
+= 1.0.0 (2016-04-02) =
 * Initial release.
