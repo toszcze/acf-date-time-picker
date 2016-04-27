@@ -2,8 +2,8 @@
 Contributors: toszcze
 Tags: advanced custom fields,acf,custom field,datepicker,timepicker
 Requires at least: 3.5
-Tested up to: 4.5
-Stable tag: 1.1.1
+Tested up to: 4.5.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ This is an add-on for [Advanced Custom Fields](https://wordpress.org/plugins/adv
 
 * Create a date and time picker field
 * Create a time picker field (without a date)
-* Two time picker types: slider (looks better) and dropdown list (takes less space)
+* Two time picker types: slider (only in ACF 5 - looks better) and dropdown list (takes less space)
 * Define date and time format for each field
 
 = Compatibility =
@@ -91,6 +91,10 @@ echo date('d/m/Y g:i a', strtotime(get_field('date_and_time_field')));
 `
 
 == Changelog ==
+
+= 1.1.2 (2016-04-27) =
+* [Fixed] Transparent background of datepicker.
+* Temporary removed the slider timepicker for ACF 4.
 
 = 1.1.1 (2016-04-10) =
 * Updated .pot file.

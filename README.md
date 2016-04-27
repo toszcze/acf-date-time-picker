@@ -14,7 +14,7 @@ This is an add-on for [Advanced Custom Fields](https://wordpress.org/plugins/adv
 
 * Create a date and time picker field
 * Create a time picker field (without a date)
-* Two time picker types: slider (looks better) and dropdown list (takes less space)
+* Two time picker types: slider (only in ACF 5 - looks better) and dropdown list (takes less space)
 * Define date and time format for each field
 
 ### Compatibility
