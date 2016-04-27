@@ -127,7 +127,7 @@ class acf_field_date_time_picker extends acf_field {
 	* @since 1.0.0
 	*/
 	public function input_admin_enqueue_scripts() {
-		wp_enqueue_style('acf-jquery-ui-timepicker', ACF_DTP_URL.'assets/css/jquery-ui-timepicker-addon.min.css', array('acf-datepicker'), ACF_DTP_VERSION);
+		wp_enqueue_style('acf-jquery-ui-timepicker', ACF_DTP_URL.'assets/css/jquery-ui-timepicker-addon.min.css', array(), ACF_DTP_VERSION);
 		wp_enqueue_style('acf-jquery-ui-slider', ACF_DTP_URL.'assets/css/jquery-ui-slider.css', array('acf-jquery-ui-timepicker'), ACF_DTP_VERSION);
 		wp_enqueue_script('jquery-ui-timepicker', ACF_DTP_URL.'assets/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.js', array('jquery-ui-datepicker', 'jquery-ui-slider'), true, ACF_DTP_VERSION);
 		wp_enqueue_script('acf-jquery-ui-slideraccess', ACF_DTP_URL.'assets/js/jquery-ui-timepicker/jquery-ui-sliderAccess.js', array('jquery-ui-slider'), true, ACF_DTP_VERSION);
