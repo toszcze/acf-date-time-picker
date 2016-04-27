@@ -100,6 +100,9 @@ class acf_field_date_time_picker_common {
 	* @return string The formatted date and time
 	*/
 	public function format_date_time($value, $field) {
+		if(empty($value)) {
+			return $value;
+		}
 		if($field['field_type'] == 'time') {
 			$format = $this->time_format_js_to_php($field['time_format']);
 		}
