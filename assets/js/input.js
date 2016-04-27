@@ -30,7 +30,7 @@
 		
 		// wrap the datepicker (only if it hasn't already been wrapped)
 		if($('body > #ui-datepicker-div').length > 0) {
-			$('#ui-datepicker-div').wrap('<div class="ui-acf" />');
+			$('#ui-datepicker-div').wrap('<div class="ui-acf acf-ui-datepicker" />');
 		}
 	}
 	
