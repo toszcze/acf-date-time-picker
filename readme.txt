@@ -94,6 +94,7 @@ echo date('d/m/Y g:i a', strtotime(get_field('date_and_time_field')));
 
 = 1.1.2 (2016-04-27) =
 * [Fixed] Transparent background of datepicker.
+* [Fixed] Do not set the current time as a default value.
 * Temporary removed the slider timepicker for ACF 4.
 
 = 1.1.1 (2016-04-10) =
