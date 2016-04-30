@@ -1,135 +1,154 @@
 # Copyright (C) 2016 Date & Time Picker for Advanced Custom Fields
 # This file is distributed under the same license as the Date & Time Picker for Advanced Custom Fields package.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Date & Time Picker for Advanced Custom Fields 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/acf-date-time-"
 "picker\n"
 "POT-Creation-Date: 2016-04-30 15:54+0200\n"
+"PO-Revision-Date: 2016-04-30 17:39+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"X-Poedit-KeywordsList: __\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: fields/acf-date_time_picker-common.php:51
 msgid "Date & Time Picker"
-msgstr ""
+msgstr "Datum & Zeit\t"
 
 #: fields/acf-date_time_picker-common.php:76
 msgid "Done"
-msgstr ""
+msgstr "Fertig"
 
 #: fields/acf-date_time_picker-common.php:77
 msgid "Now"
-msgstr ""
+msgstr "Jetzt"
 
 #: fields/acf-date_time_picker-common.php:80
 msgid "Show a different month"
-msgstr ""
+msgstr "Wähle einen anderen Monat"
 
 #: fields/acf-date_time_picker-common.php:85
 msgid "Choose Time"
-msgstr ""
+msgstr "Wähle die Zeit"
 
 #: fields/acf-date_time_picker-common.php:86
 msgid "Time"
-msgstr ""
+msgstr "Zeit"
 
 #: fields/acf-date_time_picker-common.php:87
 msgid "Hour"
-msgstr ""
+msgstr "Stunde"
 
 #: fields/acf-date_time_picker-common.php:88
 msgid "Minute"
-msgstr ""
+msgstr "Minute"
 
 #: fields/acf-date_time_picker-common.php:89
 msgid "Second"
-msgstr ""
+msgstr "Sekunde"
 
 #: fields/acf-date_time_picker-v4.php:91 fields/acf-date_time_picker-v5.php:57
 msgid "date & time"
-msgstr ""
+msgstr "Datum & Zeit"
 
 #: fields/acf-date_time_picker-v4.php:92 fields/acf-date_time_picker-v5.php:58
 msgid "time only"
-msgstr ""
+msgstr "Zeit"
 
 #: fields/acf-date_time_picker-v4.php:141
 #: fields/acf-date_time_picker-v4.php:199
 #: fields/acf-date_time_picker-v5.php:108
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: fields/acf-date_time_picker-v4.php:142
 #: fields/acf-date_time_picker-v4.php:200
 #: fields/acf-date_time_picker-v5.php:109
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: fields/acf-date_time_picker-v4.php:160 fields/acf-date_time_picker-v5.php:90
 msgid "dropdown list"
-msgstr ""
+msgstr "Auswahlliste"
 
 #: fields/acf-date_time_picker-v5.php:53
 msgid "Field type"
-msgstr ""
+msgstr "Typ"
 
 #: fields/acf-date_time_picker-v5.php:62
 msgid "Date format"
-msgstr ""
+msgstr "Formatierung des Datums"
 
 #: fields/acf-date_time_picker-v5.php:63
 msgid ""
 "Read more about <a href=\"http://api.jqueryui.com/datepicker/#utility-"
 "formatDate\" target=\"_blank\">date formats</a>"
 msgstr ""
+"Mehr Informationen unter <a href=\"http://api.jqueryui.com/datepicker/"
+"#utility-formatDate\" target=\"_blank\">Formatierung des Datums</a>"
 
 #: fields/acf-date_time_picker-v5.php:69
 msgid "Time format"
-msgstr ""
+msgstr "Formatierung der Zeit"
 
 #: fields/acf-date_time_picker-v5.php:70
 msgid ""
 "Read more about <a href=\"http://trentrichardson.com/examples/timepicker/#tp-"
 "formatting\" target=\"_blank\">time formats</a>"
 msgstr ""
+"Mehr Informationen unter <a href=\"http://trentrichardson.com/examples/"
+"timepicker/#tp-formatting\" target=\"_blank\">Formatierung der Zeit</a>"
 
 #: fields/acf-date_time_picker-v5.php:76
 msgid "Allow past dates?"
-msgstr ""
+msgstr "Erlaube vergangene Daten"
 
 #: fields/acf-date_time_picker-v5.php:80
 msgid "yes"
-msgstr ""
+msgstr "Ja"
 
 #: fields/acf-date_time_picker-v5.php:81
 msgid "no"
-msgstr ""
+msgstr "Nein"
 
 #: fields/acf-date_time_picker-v5.php:85
 msgid "Timepicker type"
-msgstr ""
+msgstr "Typ, um die Zeit auszuwählen"
 
 #: fields/acf-date_time_picker-v5.php:89
 msgid "slider"
-msgstr ""
+msgstr "Slider"
 
 #: fields/acf-date_time_picker-v5.php:96
 msgid "Week starts on"
-msgstr ""
+msgstr "Wochenbeginn"
 
 #: fields/acf-date_time_picker-v5.php:103
 msgid "Return as timestamp"
-msgstr ""
+msgstr "Den Wert als Zeitstempel zurückgeben"
 
 #: fields/acf-date_time_picker-v5.php:104
 msgid "Value will be returned as a timestamp."
-msgstr ""
+msgstr "Der Wert wird als Zeitstempel zurückgegeben."
+
+#~ msgid "Date & Time Picker for Advanced Custom Fields"
+#~ msgstr "Date & Time Picker for Advanced Custom Fields"
+
+#~ msgid "https://github.com/toszcze/acf-date-time-picker"
+#~ msgstr "https://github.com/toszcze/acf-date-time-picker"
+
+#~ msgid "Date & Time Picker field for Advanced Custom Fields 4 and 5 (Pro)"
+#~ msgstr ""
+#~ "Feld zur Auswahl von einem Datum und einer Zeit für Advanced Custom "
+#~ "Fields 4 and 5 (Pro)"
+
+#~ msgid "Bartosz Romanowski"
+#~ msgstr "Bartosz Romanowski"
+
+#~ msgid "http://romanowski.im/"
+#~ msgstr "http://romanowski.im/"

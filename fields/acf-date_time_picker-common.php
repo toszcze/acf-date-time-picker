@@ -58,6 +58,7 @@ class acf_field_date_time_picker_common {
 			'first_day' => 1,
 			'time_selector' => 'slider',
 			'past_dates' => 'yes',
+			'get_as_timestamp'  => 'false',
 		);
 	}
 	
