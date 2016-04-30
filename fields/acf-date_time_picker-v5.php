@@ -149,7 +149,9 @@ class acf_field_date_time_picker extends acf_field {
 		if(preg_match('/^dd?\//', $field['date_format'])) { // if start with dd/ or d/ (not supported by strtotime())
 			$value = str_replace('/', '-', $value);
 		}
-		$value = date('Y-m-d H:i:s', strtotime($value));
+		if(!empty($value)) {
+			$value = date('Y-m-d H:i:s', strtotime($value));
+		}
 		return $value;
 	}
 	
