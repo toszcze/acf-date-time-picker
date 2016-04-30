@@ -3,7 +3,7 @@ Contributors: toszcze
 Tags: advanced custom fields,acf,custom field,datepicker,timepicker
 Requires at least: 3.5
 Tested up to: 4.5.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,9 @@ echo date('d/m/Y g:i a', strtotime(get_field('date_and_time_field')));
 `
 
 == Changelog ==
+
+= 1.1.3 (2016-04-30) =
+* [Fixed] Do not try to convert empty string to date.
 
 = 1.1.2 (2016-04-27) =
 * [Fixed] Transparent background of datepicker.
