@@ -138,8 +138,8 @@ class acf_field_date_time_picker extends acf_field {
 					'layout' => 'horizontal',
 					'name' => 'fields['.$key.'][past_dates]',
 					'value' => $field['past_dates'],
-					'choices' => array('yes' => __('yes', 'acf-date-time-picker'),
-									   'no' => __('no', 'acf-date-time-picker'),
+					'choices' => array('yes' => __('Yes', 'acf-date-time-picker'),
+									   'no' => __('No', 'acf-date-time-picker'),
 									  ),
 				));
 				?>
@@ -183,6 +183,26 @@ class acf_field_date_time_picker extends acf_field {
 				?>
 			</td>
 		</tr>
+
+		<tr class="field_option field_option_<?php echo $this->name; ?>">
+			<td class="label">
+				<label><?php _e('Return as timestamp', 'acf-date-time-picker'); ?></label>
+				<p class="description"><?php _e('Value will be returned as a timestamp.', 'acf-date-time-picker'); ?></p>
+			</td>
+			<td>
+				<?php
+				do_action('acf/create_field', array(
+					'type' => 'radio',
+					'layout' => 'horizontal',
+					'name' => 'fields['.$key.'][get_as_timestamp]',
+					'value' => $field['get_as_timestamp'],
+					'choices' => array('true' => __('Yes', 'acf-date-time-picker'),
+									   'false' => __('No', 'acf-date-time-picker'),
+									  ),
+				));
+				?>
+			</td>
+		</tr>
 		<?php
 	}
 	
@@ -202,8 +222,10 @@ class acf_field_date_time_picker extends acf_field {
 										  data-first-day="<?php echo esc_attr($field['first_day']); ?>"
 										  data-time-selector="<?php echo esc_attr($field['time_selector']); ?>"
 										  data-past-dates="<?php echo esc_attr($field['past_dates']); ?>"
+										  data-get-as-timestamp="<?php echo esc_attr($field['get_as_timestamp']); ?>"
 										  >
-			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($field['value']); ?>" class="input" />
+      <?php $formatted_field_value = $this->dtp->format_date_time($field['value'], $field); ?>
+			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($formatted_field_value); ?>" class="input" />
 		</div>
 		<?php
 	}
@@ -256,7 +278,11 @@ class acf_field_date_time_picker extends acf_field {
 	*/
 	public function load_value($value, $post_id, $field) {
 		$field = array_merge($this->defaults, $field);
-		return $this->dtp->format_date_time($value, $field);
+    if ($field['get_as_timestamp']) {
+		  return strtotime($value);
+    } else {
+		  return $this->dtp->format_date_time($value, $field);
+    }
 	}
 	
 }
