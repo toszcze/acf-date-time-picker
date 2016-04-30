@@ -98,6 +98,16 @@ class acf_field_date_time_picker extends acf_field {
 			'name' => 'first_day',
 			'choices' => $choices,
 		));		
+
+		acf_render_field_setting($field, array(
+			'label' => __('Return as timestamp', 'acf-date-time-picker'),
+      'instructions' => __('Value will be returned as a timestamp.', 'acf-date-time-picker'),
+			'type' => 'radio',
+			'layout' => 'horizontal',
+			'name' => 'get_as_timestamp',
+			'choices' => array('true' => __('Yes', 'acf-date-time-picker'),
+                         'false' => __('No', 'acf-date-time-picker')),
+		));
 	}
 	
 	/**
@@ -116,7 +126,8 @@ class acf_field_date_time_picker extends acf_field {
 										  data-time-selector="<?php echo esc_attr($field['time_selector']); ?>"
 										  data-past-dates="<?php echo esc_attr($field['past_dates']); ?>"
 										  >
-			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($field['value']); ?>" class="input" />
+      <?php $formatted_field_value = $this->dtp->format_date_time($field['value'], $field); ?>
+			<input type="text" name="<?php echo esc_attr($field['name']); ?>" value="<?php echo esc_attr($formatted_field_value); ?>" class="input" />
 		</div>
 		<?php
 	}
@@ -168,7 +179,11 @@ class acf_field_date_time_picker extends acf_field {
 	* @return mixed The formatted date and time
 	*/
 	public function load_value($value, $post_id, $field) {
-		return $this->dtp->format_date_time($value, $field);
+    if ($field['get_as_timestamp']) {
+		  return strtotime($value);
+    } else {
+      return $this->dtp->format_date_time($value, $field);
+    }
 	}
 	
 }
