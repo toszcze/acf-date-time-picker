@@ -146,12 +146,13 @@ class acf_field_date_time_picker extends acf_field {
 	* @return mixed The value which will be saved in the database
 	*/
 	public function update_value($value, $post_id, $field) {
+		if(empty($value)) {
+			return $value;
+		}
 		if(preg_match('/^dd?\//', $field['date_format'])) { // if start with dd/ or d/ (not supported by strtotime())
 			$value = str_replace('/', '-', $value);
 		}
-		if(!empty($value)) {
-			$value = date('Y-m-d H:i:s', strtotime($value));
-		}
+		$value = date('Y-m-d H:i:s', strtotime($value));
 		return $value;
 	}
 	
