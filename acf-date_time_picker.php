@@ -3,7 +3,7 @@
 Plugin Name: Date & Time Picker for Advanced Custom Fields
 Plugin URI: https://github.com/toszcze/acf-date-time-picker
 Description: Date & Time Picker field for Advanced Custom Fields 4 and 5 (Pro)
-Version: 1.1.3
+Version: 1.1.4
 Author: Bartosz Romanowski
 Author URI: http://romanowski.im/
 License: GPLv2 or later
@@ -17,7 +17,7 @@ Domain Path: /languages/
 if(!defined('ABSPATH')) exit;
 
 if(!defined('ACF_DTP_VERSION')) {
-	define('ACF_DTP_VERSION', '1.1.3');
+	define('ACF_DTP_VERSION', '1.1.4');
 }
 if(!defined('ACF_DTP_URL')) {
 	define('ACF_DTP_URL', plugin_dir_url(__FILE__));

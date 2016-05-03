@@ -3,7 +3,7 @@ Contributors: toszcze
 Tags: advanced custom fields,acf,custom field,datepicker,timepicker
 Requires at least: 3.5
 Tested up to: 4.5.1
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,7 +90,12 @@ To display the date and time in a different format, you can use [strtotime()](ht
 echo date('d/m/Y g:i a', strtotime(get_field('date_and_time_field')));
 `
 
+You can also use [format_value](https://www.advancedcustomfields.com/resources/acfformat_value/) filter to format the field value.
+
 == Changelog ==
+
+= 1.1.4 (2016-05-03) =
+* German translation (props [Moritz Lipp](https://github.com/mlq)).
 
 = 1.1.3 (2016-04-30) =
 * [Fixed] Do not try to convert empty string to date.
