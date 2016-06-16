@@ -10,6 +10,8 @@ Date & Time Picker field for Advanced Custom Fields 4 and 5.
 
 This is an add-on for [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) and [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/), which allows to create a Date and Time Picker field.
 
+__NOTICE:__ [ACF 5.3.9 added new Date & Time Picked field](https://www.advancedcustomfields.com/blog/acf-pro-5-3-9-update/). You can still use this plugin, however if you want to use the new Date & Time field you have to disable this plugin.
+
 ### Features
 
 * Create a date and time picker field
